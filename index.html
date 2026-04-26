@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hooda AbdulShakoor - CV</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #0d0d0d;
+    --mid: #444444;
+    --light: #888888;
+    --rule: #d0d0d0;
+    --page: #ffffff;
+    --font-heading: 'EB Garamond', Georgia, serif;
+    --font-body: 'DM Sans', Helvetica, sans-serif;
+  }
+
+  html { font-size: 10.5pt; }
+
+  body {
+    background: #f0eeeb;
+    font-family: var(--font-body);
+    color: var(--black);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    background: var(--page);
+    width: 210mm;
+    min-height: 297mm;
+    margin: 28px auto;
+    padding: 22mm 20mm 20mm 20mm;
+    box-shadow: 0 4px 40px rgba(0,0,0,0.10);
+  }
+
+  /* HEADER */
+  .header {
+    border-bottom: 1.5px solid var(--black);
+    padding-bottom: 13px;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  .header h1 {
+    font-family: var(--font-heading);
+    font-size: 26pt;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+    color: var(--black);
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+
+  .header .title {
+    font-family: var(--font-body);
+    font-size: 8.8pt;
+    font-weight: 400;
+    color: var(--mid);
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    margin-bottom: 11px;
+  }
+
+  .contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 4px 14px;
+    font-size: 8.5pt;
+    color: var(--mid);
+  }
+
+  .contact-row .sep {
+    color: var(--rule);
+    font-size: 10pt;
+    line-height: 1;
+  }
+
+  .contact-row a {
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .contact-row a:hover {
+    color: var(--black);
+    text-decoration: underline;
+  }
+
+  /* SECTIONS */
+  section { margin-bottom: 16px; }
+
+  .section-title {
+    font-family: var(--font-heading);
+    font-size: 10pt;
+    font-weight: 600;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--black);
+    border-bottom: 0.75px solid var(--rule);
+    padding-bottom: 4px;
+    margin-bottom: 10px;
+  }
+
+  /* PROFILE */
+  .profile p {
+    font-size: 9.5pt;
+    line-height: 1.70;
+    color: var(--mid);
+    font-weight: 300;
+    text-align: justify;
+  }
+
+  /* SKILLS */
+  .skills-grid { display: flex; flex-direction: column; gap: 5px; }
+
+  .skill-row {
+    display: grid;
+    grid-template-columns: 148px 1fr;
+    gap: 8px;
+    font-size: 8.8pt;
+    line-height: 1.5;
+  }
+
+  .skill-label {
+    font-weight: 500;
+    color: var(--black);
+    padding-top: 1px;
+  }
+
+  .skill-value { color: var(--mid); font-weight: 300; }
+
+  /* EXPERIENCE */
+  .exp-entry { margin-bottom: 13px; }
+  .exp-entry:last-child { margin-bottom: 0; }
+
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 2px;
+    gap: 8px;
+  }
+
+  .exp-title {
+    font-size: 9.5pt;
+    font-weight: 500;
+    color: var(--black);
+  }
+
+  .exp-date {
+    font-size: 8.3pt;
+    color: var(--light);
+    white-space: nowrap;
+    font-style: italic;
+  }
+
+  .exp-body {
+    font-size: 9pt;
+    line-height: 1.68;
+    color: var(--mid);
+    font-weight: 300;
+    margin-top: 4px;
+    text-align: justify;
+  }
+
+  /* PROJECTS */
+  .project-entry { margin-bottom: 9px; }
+  .project-entry:last-child { margin-bottom: 0; }
+
+  .project-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .project-name {
+    font-size: 9.2pt;
+    font-weight: 500;
+    color: var(--black);
+  }
+
+  .project-stack {
+    font-size: 8pt;
+    color: var(--light);
+    font-style: italic;
+  }
+
+  .project-desc {
+    font-size: 8.8pt;
+    line-height: 1.60;
+    color: var(--mid);
+    font-weight: 300;
+    margin-top: 2px;
+    text-align: justify;
+  }
+
+  /* EDUCATION */
+  .edu-entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .edu-degree {
+    font-size: 9.2pt;
+    font-weight: 500;
+    color: var(--black);
+  }
+
+  .edu-year {
+    font-size: 8.3pt;
+    color: var(--light);
+    font-style: italic;
+  }
+
+  .edu-school {
+    font-size: 8.8pt;
+    color: var(--mid);
+    margin-top: 2px;
+    font-weight: 300;
+  }
+
+  /* RECOGNITIONS */
+  .rec-entry { margin-bottom: 9px; }
+  .rec-entry:last-child { margin-bottom: 0; }
+
+  .rec-title {
+    font-size: 9.2pt;
+    font-weight: 500;
+    color: var(--black);
+    margin-bottom: 2px;
+  }
+
+  .rec-desc {
+    font-size: 8.8pt;
+    line-height: 1.60;
+    color: var(--mid);
+    font-weight: 300;
+    text-align: justify;
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: white; }
+    .page { margin: 0; box-shadow: none; padding: 15mm 18mm; }
+    .contact-row a { color: var(--mid); text-decoration: none; }
+  }
+
+  @page { size: A4; margin: 0; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <h1>Hooda AbdulShakoor</h1>
+    <div class="title">UX/UI Designer &nbsp;·&nbsp; Frontend Developer &nbsp;·&nbsp; Flutter &nbsp;·&nbsp; AI-Integrated</div>
+    <div class="contact-row">
+      <span>Dubai, UAE</span>
+      <span class="sep">|</span>
+      <a href="mailto:hoodaabdulshakoor@gmail.com">hoodaabdulshakoor@gmail.com</a>
+      <span class="sep">|</span>
+      <span>(971) 54 359 8368</span>
+      <span class="sep">|</span>
+      <a href="https://www.linkedin.com/in/hooda-abdulshakoor" target="_blank">LinkedIn</a>
+      <span class="sep">|</span>
+      <a href="https://github.com/https-hd" target="_blank">GitHub</a>
+    </div>
+  </div>
+
+  <!-- PROFILE -->
+  <section class="profile">
+    <div class="section-title">Profile</div>
+    <p>UX/UI Designer and Frontend Developer with a First-Class Honours degree in Information Technology and hands-on experience building digital products across healthcare, real estate, and education. What adds an edge beyond the technical background is direct commercial experience, having run SEO, CRM, lead generation, and client-facing sales alongside development work, giving a genuine understanding of how design decisions affect real business outcomes. Currently deepening expertise in UX and modern frontend development, with a strong ability to pick up new tools quickly and contribute meaningfully from day one, whether working independently or as part of a team.</p>
+  </section>
+
+  <!-- SKILLS -->
+  <section>
+    <div class="section-title">Skills</div>
+    <div class="skills-grid">
+      <div class="skill-row">
+        <span class="skill-label">UX &amp; Design</span>
+        <span class="skill-value">Figma · Miro · Wireframing · Prototyping · User Flows · Design Systems · Interaction Design · Responsive Design · Visual Branding · Adobe Firefly · Canva</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-label">Frontend</span>
+        <span class="skill-value">React.js · Next.js · Vue.js · Flutter · TypeScript · JavaScript (ES6+) · HTML5 · CSS3 · Tailwind CSS · Material UI · Component-Based Architecture · Performance Optimization</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-label">Backend &amp; Data</span>
+        <span class="skill-value">Node.js · Express.js · MongoDB · MySQL · RESTful APIs · PHP · Authentication Systems · API Integration</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-label">Digital &amp; Growth</span>
+        <span class="skill-value">SEO · Google Analytics · CRM Systems · Social Media Marketing · Lead Generation · Conversion Optimization</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-label">AI Tools</span>
+        <span class="skill-value">Claude · GitHub Copilot · Cursor · v0 by Vercel · Blackbox AI · ChatGPT (GPT-4o) · Figma AI</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-label">Dev &amp; Collaboration</span>
+        <span class="skill-value">Git · GitHub · Postman · Monday.com · Zoho Creator · Unity · Construct 3</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section>
+    <div class="section-title">Experience</div>
+
+    <div class="exp-entry">
+      <div class="exp-header">
+        <span class="exp-title">Secondary Sales Manager · Rayna Properties, Dubai</span>
+        <span class="exp-date">Feb 2026 – Present</span>
+      </div>
+      <p class="exp-body">Working in off-plan property sales in one of the most competitive real estate markets in the world. Beyond hitting targets, bringing a digital and product mindset to the role, using CRM data to understand where clients drop off, spotting friction in the sales journey, and flagging improvements that most people in this seat wouldn't think to look for. Fast-paced, people-heavy work that keeps the understanding of real user behavior sharp.</p>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-header">
+        <span class="exp-title">Digital &amp; IT Lead · Off-Plan Sales · Top Rated Real Estate, Dubai</span>
+        <span class="exp-date">Apr 2025 – Feb 2026</span>
+      </div>
+      <p class="exp-body">Joined as a sales consultant and quickly became the person the team leaned on for everything digital. Ended up running the website, CRM, SEO, social media, lead generation, and marketing, all alongside an active sales desk. Rebuilt key parts of the website UX from scratch, which had a direct impact on lead quality. Automated listing workflows through API and SQL integrations, cutting significant manual overhead. The role was unusual, equal parts solo digital operator and team contributor, and taught more about end-to-end product ownership than most junior roles would.</p>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-header">
+        <span class="exp-title">Digital Marketing &amp; Design Intern · BrainQuest, Dubai</span>
+        <span class="exp-date">May 2025 – Jun 2025</span>
+      </div>
+      <p class="exp-body">Handled brand visuals and SEO content campaigns. Designed assets in Figma, Canva, and Adobe Firefly, and tracked campaign performance closely enough to make changes mid-flight rather than just report the numbers afterward.</p>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-header">
+        <span class="exp-title">Frontend Developer &amp; UI/UX Designer · RelphaCare</span>
+        <span class="exp-date">Jan 2024 – Jun 2024</span>
+      </div>
+      <p class="exp-body">Built an AI-driven healthcare platform from the ground up, starting with user research and Figma prototypes and ending with a working Next.js and TypeScript product. The challenge wasn't just technical; it was making something genuinely usable for patients who weren't comfortable with technology. Also presented the product to stakeholders, translating design decisions into language that made sense outside the design room.</p>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-header">
+        <span class="exp-title">Game Developer &amp; Creative Contributor · KT Gamez / Giro Gamez</span>
+        <span class="exp-date">Jun 2023 – Aug 2023</span>
+      </div>
+      <p class="exp-body">Developed interactive games in Unity and Construct 3, thinking seriously about what keeps someone engaged and what makes them quit. Handled promotional design work alongside development, good practice in making something visually compelling under a tight brief.</p>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-header">
+        <span class="exp-title">Client Service Intern · Motus One</span>
+        <span class="exp-date">Sep 2023 – Dec 2023</span>
+      </div>
+      <p class="exp-body">Managed client data, event logistics, and internal workflows across Monday.com, Excel, and Word. Straightforward work, but it built habits around accuracy, organisation, and following through that carry into every role since.</p>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section>
+    <div class="section-title">Projects</div>
+
+    <div class="project-entry">
+      <div class="project-title-row">
+        <span class="project-name">WayWeGo - Sustainable Carpooling App</span>
+        <span class="project-stack">Figma · Miro · SurveyMonkey</span>
+      </div>
+      <p class="project-desc">University-based peer mobility platform with real-time chat, fare-splitting, and route matching, taken from research through to high-fidelity prototype. Presented at Gitex Expand North Star 2024, the region's largest technology event.</p>
+    </div>
+
+    <div class="project-entry">
+      <div class="project-title-row">
+        <span class="project-name">TabibSouq - Healthcare Consultation Platform</span>
+        <span class="project-stack">Vue.js · Node.js · MongoDB</span>
+      </div>
+      <p class="project-desc">Full-stack doctor-patient platform with AI-based appointment recommendations and automated healthcare data sourcing, built to reduce friction in accessing medical consultation.</p>
+    </div>
+
+    <div class="project-entry">
+      <div class="project-title-row">
+        <span class="project-name">EduSync - Student Course Discovery App</span>
+        <span class="project-stack">Vue.js · Node.js · MongoDB</span>
+      </div>
+      <p class="project-desc">Mobile-first platform helping students find and evaluate courses, with an integrated peer review system and personalised recommendation engine built in from the start.</p>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section>
+    <div class="section-title">Education</div>
+    <div class="edu-entry">
+      <span class="edu-degree">BSc Information Technology, First-Class Honours (Distinction)</span>
+      <span class="edu-year">2021 – 2024</span>
+    </div>
+    <div class="edu-school">Middlesex University Dubai</div>
+  </section>
+
+  <!-- RECOGNITIONS -->
+  <section>
+    <div class="section-title">Recognitions</div>
+
+    <div class="rec-entry">
+      <div class="rec-title">UAE Golden Visa - Outstanding Student Category</div>
+      <p class="rec-desc">Awarded by the UAE government for academic excellence and professional innovation.</p>
+    </div>
+
+    <div class="rec-entry">
+      <div class="rec-title">Gitex Expand North Star 2024 - Official Presenter</div>
+      <p class="rec-desc">Selected to present WayWeGo at the Middlesex University Innovation Hub at Gitex, the Middle East's largest annual technology event, attended by thousands of industry leaders and investors.</p>
+    </div>
+
+    <div class="rec-entry">
+      <div class="rec-title">RTA Dubai ThinkTank - Finalist</div>
+      <p class="rec-desc">Recognised by the Roads and Transport Authority of Dubai for a sustainable mobility concept, finishing among the top teams across the region.</p>
+    </div>
+
+    <div class="rec-entry">
+      <div class="rec-title">Tabtakir Innovation Event 2025 - Alumni Guest Speaker</div>
+      <p class="rec-desc">Invited back to Middlesex University Dubai to speak at the Tabtakir showcase, addressing current students and industry guests on product development and entrepreneurship.</p>
+    </div>
+
+    <div class="rec-entry">
+      <div class="rec-title">Zoho Creator Workshop - Certified Participant</div>
+      <p class="rec-desc">Completed a hands-on low-code/no-code development workshop, building a functioning e-commerce application using Zoho Creator.</p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
